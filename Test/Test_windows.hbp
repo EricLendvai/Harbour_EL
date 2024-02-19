@@ -1,0 +1,22 @@
+-hbexe
+
+#To enabled progressing recompilation uncomment the following line
+#-inc
+
+#used for VSCODE debugger
+-gtcgi
+
+-trace
+
+-obuild\win64\${HB_COMPILER}\${BuildMode}\${EXEName}
+
+-L${HB_EL_ROOT}\build\win64\${HB_COMPILER}\${BuildMode}
+hb_el.hbc
+
+-workdir=build\win64\${HB_COMPILER}\${BuildMode}\hbmk2\
+
+#To also create a list of all the object files linked uncomment the following line
+#-map
+
+Test.prg
+SetupTables.prg

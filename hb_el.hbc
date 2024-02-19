@@ -1,0 +1,11 @@
+description=Microsoft Visual FoxPro Compatibility
+
+incpaths=.
+
+#headers=${hb_name}.ch
+
+libs=${_HB_DYNPREF}${hb_name}${_HB_DYNSUFF}
+
+{win}libs=hbwin.hbc
+{unix&!darwin}libs=hbunix.hbc
+{unix&darwin}libs=hbunix.hbc

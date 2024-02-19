@@ -1,0 +1,36 @@
+-hblib
+
+#To enabled progressing recompilation uncomment the following line
+#-inc
+
+-workdir=build/lin64/${HB_COMPILER}/${BuildMode}/hbmk2/
+
+-obuild/lin64/${HB_COMPILER}/${BuildMode}/hb_el
+
+#The following settings are done via the BuildLIB.bat
+#-w3 -es2
+
+#To generate non pcode source code
+-gc3
+
+#To generate an hbx file that could be consumed by client exes and other libs
+-hbx=hb_el_linux.hbx
+
+#Example of how to consume this library
+#$hb_el_linux.hbx
+
+hb_el.prg
+
+hb_el_c.c
+
+#The following 2 files will be merged in live Harbour later probably, or at least their changes
+el_strtran.c
+el_strreplace.c
+
+el_from_harbour_foxpro_contrib.c
+
+hb_extra.c
+
+el_AUnpack.c
+
+el_GetProcessID.prg
