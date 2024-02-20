@@ -14,7 +14,7 @@
 //=================================================================================================================
 //=================================================================================================================
 function EL_GetVersion()
-return 4.0
+return 4.1
 //=================================================================================================================
 //The EL_ScanStack is to be used in conjuntion with the "#command SCAN" and "#command ENDSCAN"
 function EL_ScanStack(par_action)    //action = "push" "pop" "scan" , "clear" (empty the entire stack)
@@ -86,7 +86,7 @@ function EL_dbf(par_xalias)
 
 //Notes for future solution to get the file name with the path
 //Following Will return the file handle instead
-hb_el_SendToDebugView("Table File Handle",(par_xalias)->(DbInfo(DBI_FILEHANDLE)))
+el_SendToDebugView("Table File Handle",(par_xalias)->(DbInfo(DBI_FILEHANDLE)))
 // See https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlea
 // See https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlew
 // See c:\harbour\src\rtl\fslink.c for example code for Windows api call
@@ -94,7 +94,7 @@ hb_el_SendToDebugView("Table File Handle",(par_xalias)->(DbInfo(DBI_FILEHANDLE))
 return (par_xalias)->(DbInfo(DBI_FULLPATH))   //Does not include the fullpath!
 //=================================================================================================================
 //=================================================================================================================
-function hb_el_SendToDebugView(par_cStep,par_xValue)
+function el_SendToDebugView(par_cStep,par_xValue)
 local l_cTypeOfxValue
 local l_cValue := "Unknown Value"
 

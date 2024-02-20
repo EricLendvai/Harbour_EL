@@ -1,7 +1,7 @@
 //Copyright (c) 2024 Eric Lendvai MIT License
 
 #ifndef HB_EL_BUILDVERSION
-#define HB_EL_BUILDVERSION "4.0"
+#define HB_EL_BUILDVERSION "4.1"
 
 // When updating the HB_EL_BUILDVERSION also update hb_el.ch and function EL_GetVersion() in hb_el.prg
 

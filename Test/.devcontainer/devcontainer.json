@@ -18,7 +18,7 @@
         "harbour.decorator":true
     }
 
-    ,"mounts": ["source=C:\\Harbour_EL,target=/src/Harbour_EL,type=bind,consistency=default"]
+    ,"mounts": ["source=R:\\Harbour_EL,target=/src/Harbour_EL,type=bind,consistency=default"]
 
     // Add the IDs of extensions you want installed when the container is created.
     ,"extensions": [

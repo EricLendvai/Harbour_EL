@@ -14,4 +14,4 @@ The Test folder currently only has one example: hb_el_Test.code-workspace (open 
 Please go to https://harbour.wiki for articles, documentation and message board search engine.
 
 ## Development Note
-When changing the version, update the files hb_el.ch, hb_el.prg (EL_GetVersion()).
+When changing the version, update the files hb_el.ch, hb_el.prg (el_GetVersion()).
