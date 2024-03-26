@@ -1,7 +1,7 @@
 //Copyright (c) 2024 Eric Lendvai MIT License
 
 #ifndef HB_EL_BUILDVERSION
-#define HB_EL_BUILDVERSION "4.1"
+#define HB_EL_BUILDVERSION "4.2"
 
 // When updating the HB_EL_BUILDVERSION also update hb_el.ch and function EL_GetVersion() in hb_el.prg
 
@@ -36,6 +36,7 @@
 #translate allt(<x>) => alltrim(<x>)
 
 #translate Trans(<x>) => alltrim(hb_CStr(<x>))
+#translate trans(<x>) => alltrim(hb_CStr(<x>))
 
 //enhances the used() harbour function to support a parameter.
 #xtranslate used( <cAlias> ) => ((select( <cAlias> ) > 0))
@@ -114,9 +115,8 @@
 
 #xtranslate NVL(<v1>,<v2>) => el_nvl(<v1>,<v2>)
 
-//The el_dbf() is actually case sensitive.
-#xtranslate el_dbf()         => DBINFO(DBI_FULLPATH)
-#xtranslate el_dbf(<xAlias>) => (<xAlias>)->(DBINFO(DBI_FULLPATH))
+// #xtranslate el_dbf()         => DBINFO(DBI_FULLPATH)
+// #xtranslate el_dbf(<xAlias>) => (<xAlias>)->(DBINFO(DBI_FULLPATH))
 
 #command CD <(path)> => hb_cwd(<(path)>)
 

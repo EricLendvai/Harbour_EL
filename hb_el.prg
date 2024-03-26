@@ -14,7 +14,7 @@
 //=================================================================================================================
 //=================================================================================================================
 function EL_GetVersion()
-return 4.1
+return 4.2
 //=================================================================================================================
 //The EL_ScanStack is to be used in conjuntion with the "#command SCAN" and "#command ENDSCAN"
 function EL_ScanStack(par_action)    //action = "push" "pop" "scan" , "clear" (empty the entire stack)
@@ -50,7 +50,7 @@ endswitch
 
 return l_xResult
 //=================================================================================================================
-function EL_StrToFile(par_cExpression,par_cFileName,par_lAdditive)   //Partial implementation of VFP9's strtran(). The 3rd parameter only supports a logical
+function EL_StrToFile(par_cExpression,par_cFileName,par_lAdditive)   //Partial implementation of VFP9's STRTOFILE(). The 3rd parameter only supports a logical
 
 local l_lAdditive
 local l_nBytesWritten := 0
@@ -81,20 +81,38 @@ endif
 return l_nBytesWritten
 //=================================================================================================================
 function EL_dbf(par_xalias)
-
+local l_cResult
 //Sadly will only return the file name, not the fullpath
 
 //Notes for future solution to get the file name with the path
 //Following Will return the file handle instead
-el_SendToDebugView("Table File Handle",(par_xalias)->(DbInfo(DBI_FILEHANDLE)))
+// el_SendToDebugView("Table File Handle",(par_xalias)->(DbInfo(DBI_FILEHANDLE)))
 // See https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlea
 // See https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlew
 // See c:\harbour\src\rtl\fslink.c for example code for Windows api call
 
-return (par_xalias)->(DbInfo(DBI_FULLPATH))   //Does not include the fullpath!
+if ((select( par_xalias ) > 0))
+    l_cResult := (par_xalias)->(DbInfo(DBI_FULLPATH))   //Does not include the fullpath!
+else
+    l_cResult := ""
+endif
+
+return l_cResult
 //=================================================================================================================
+function EL_AddPs(par_cPath)   // Add conditionally Path Separator (Equivalent to VFP AddBs())
+local l_cPath := par_cPath
+local l_cPs
+
+if !empty(l_cPath)
+    l_cPs := hb_ps()
+    if !(right(l_cPath,1) == l_cPs)
+        l_cPath += l_cPs
+    endif
+endif
+
+return l_cPath
 //=================================================================================================================
-function el_SendToDebugView(par_cStep,par_xValue)
+function EL_SendToDebugView(par_cStep,par_xValue)
 local l_cTypeOfxValue
 local l_cValue := "Unknown Value"
 

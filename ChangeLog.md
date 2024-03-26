@@ -1,5 +1,11 @@
 # Harbour Extended Library - Change Log
 
+## 03/25/2024 v 4.2
+* Added documentation in README.md.
+* el_dbf() now requires its parameter, and will return a blank string if the alias does not exists.
+* Added el_AddPs(cPath) -> cPath   
+  Add trailing Path Separator if missing, as long as cPath is not empty (Equivalent to VFP AddBs())   
+
 ## 02/19/2024 v 4.1
 * Renamed hb_el_SendToDebugView to el_SendToDebugView
 
