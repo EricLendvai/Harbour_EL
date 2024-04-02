@@ -1,5 +1,8 @@
 # Harbour Extended Library - Change Log
 
+## 04/02/2024 v 4.3
+* Added precompiler constants CR and LF
+
 ## 03/25/2024 v 4.2
 * Added documentation in README.md.
 * el_dbf() now requires its parameter, and will return a blank string if the alias does not exists.

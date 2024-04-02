@@ -14,7 +14,7 @@
 //=================================================================================================================
 //=================================================================================================================
 function EL_GetVersion()
-return 4.2
+return 4.3
 //=================================================================================================================
 //The EL_ScanStack is to be used in conjuntion with the "#command SCAN" and "#command ENDSCAN"
 function EL_ScanStack(par_action)    //action = "push" "pop" "scan" , "clear" (empty the entire stack)

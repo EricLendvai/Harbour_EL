@@ -1,7 +1,7 @@
 //Copyright (c) 2024 Eric Lendvai MIT License
 
 #ifndef HB_EL_BUILDVERSION
-#define HB_EL_BUILDVERSION "4.2"
+#define HB_EL_BUILDVERSION "4.3"
 
 // When updating the HB_EL_BUILDVERSION also update hb_el.ch and function EL_GetVersion() in hb_el.prg
 
@@ -44,6 +44,14 @@
 //A common shortcut for end of line
 #ifndef CRLF
 #define CRLF chr(13)+chr(10)
+#endif
+
+#ifndef CR
+#define CR chr(13)
+#endif
+
+#ifndef LF
+#define LF chr(10)
 #endif
 
 //--------------------------------------------------------------------------------------------

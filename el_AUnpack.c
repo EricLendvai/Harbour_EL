@@ -4,6 +4,11 @@
 #include "hbapiitm.h"
 
 //Made a merge request into harbour and named the function HB_AUNPACK.  2021-02-14  #232
+
+//A different method would be to use the following suggested in the #233 thread:
+// #xcommand UNPACK <x1>[, <xN>] := <exp> => hb_ExecFromArray( {| _unpack_<x1>[, _unpack_<xN> ] | <x1> := _unpack_<x1>[, <xN> := _unpack_<xN>] }, <exp> )
+// #xcommand UNPACK <x1>[, <xN>] REST <rest> := <exp> => hb_ExecFromArray( {| _unpack_<x1>[, _unpack_<xN> ], ... | <x1> := _unpack_<x1>[, <xN> := _unpack_<xN>], <rest> := { ... } }, <exp> )
+
 HB_FUNC( EL_AUNPACK )
 {
     PHB_ITEM pArray = hb_param( 1, HB_IT_ARRAY );
