@@ -34,3 +34,5 @@ hb_extra.c
 el_AUnpack.c
 
 el_GetProcessID.prg
+el_GetVersion.prg
+el_UTC.prg

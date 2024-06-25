@@ -12,12 +12,8 @@
 //     wvt_SetClipboard(cText)
 // return .T.
 //=================================================================================================================
-//=================================================================================================================
-function EL_GetVersion()
-return 4.3
-//=================================================================================================================
-//The EL_ScanStack is to be used in conjuntion with the "#command SCAN" and "#command ENDSCAN"
-function EL_ScanStack(par_action)    //action = "push" "pop" "scan" , "clear" (empty the entire stack)
+//The el_ScanStack is to be used in conjuntion with the "#command SCAN" and "#command ENDSCAN"
+function el_ScanStack(par_action)    //action = "push" "pop" "scan" , "clear" (empty the entire stack)
 local l_xResult := nil
 static iTop   := 0
 static aStack := {}     //Will hold an array [WorkArea,.t. if first loop]
@@ -50,7 +46,7 @@ endswitch
 
 return l_xResult
 //=================================================================================================================
-function EL_StrToFile(par_cExpression,par_cFileName,par_lAdditive)   //Partial implementation of VFP9's STRTOFILE(). The 3rd parameter only supports a logical
+function el_StrToFile(par_cExpression,par_cFileName,par_lAdditive)   //Partial implementation of VFP9's STRTOFILE(). The 3rd parameter only supports a logical
 
 local l_lAdditive
 local l_nBytesWritten := 0
@@ -80,7 +76,7 @@ endif
 
 return l_nBytesWritten
 //=================================================================================================================
-function EL_dbf(par_xalias)
+function el_dbf(par_xalias)
 local l_cResult
 //Sadly will only return the file name, not the fullpath
 
@@ -99,7 +95,7 @@ endif
 
 return l_cResult
 //=================================================================================================================
-function EL_AddPs(par_cPath)   // Add conditionally Path Separator (Equivalent to VFP AddBs())
+function el_AddPs(par_cPath)   // Add conditionally Path Separator (Equivalent to VFP AddBs())
 local l_cPath := par_cPath
 local l_cPs
 
@@ -112,7 +108,7 @@ endif
 
 return l_cPath
 //=================================================================================================================
-function EL_SendToDebugView(par_cStep,par_xValue)
+function el_SendToDebugView(par_cStep,par_xValue)
 local l_cTypeOfxValue
 local l_cValue := "Unknown Value"
 

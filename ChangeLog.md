@@ -1,5 +1,9 @@
 # Harbour Extended Library - Change Log
 
+## 06/23/2024 v 4.4
+* Added el_UTCOffsetMinToText(<Minute>) -> text. For example el_UTCOffsetMinToText(420) will return "-07:00".   
+  Can be used when querying PostgreSQL timestamp with time zone fields with "AT TIME ZONE '-07:00'".   
+
 ## 04/02/2024 v 4.3
 * Added precompiler constants CR and LF
 
