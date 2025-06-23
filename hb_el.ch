@@ -1,7 +1,7 @@
-//Copyright (c) 2024 Eric Lendvai MIT License
+//Copyright (c) 2025 Eric Lendvai MIT License
 
 #ifndef HB_EL_BUILDVERSION
-#define HB_EL_BUILDVERSION "4.4"
+#define HB_EL_BUILDVERSION "4.5"
 
 //#include "hbclass.ch"
 

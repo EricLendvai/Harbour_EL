@@ -1,10 +1,12 @@
-//Copyright (c) 2024 Eric Lendvai MIT License
+//Copyright (c) 2025 Eric Lendvai MIT License
 
 request DBFCDX
 request DBFFPT
 request HB_CODEPAGE_EN
 
 #include "hb_el.ch"
+#include "dbinfo.ch"
+
 
 //=================================================================================================================
 Function Main()
@@ -13,6 +15,12 @@ local cVal1 := "x"
 local cVal2 := "y"
 local cVal3 := "z"
 local cVal4 := {-1}
+
+?el_CreateFolder("d:\Test001\Test002\Test004")
+?el_CreateFolder("d:\Test001\Test002\Test003\Test005")
+?
+
+TestPythonIntegration()
 
 ?"Process ID: ",el_GetProcessID()
 
@@ -38,11 +46,14 @@ hb_cdpSelect("EN")
 set delete on
 UpdateSchema()
 
-if OpenTable("client" ,.t.,.f.) .and.;
-   OpenTable("invoice",.t.,.f.) .and.;
-   OpenTable("item"   ,.t.,.f.)
 
-    //?el_dbf("client")
+//Under Linux Docker, may not open the tables in Shared mode. This is a known issue under Docker.
+if .f. .and. OpenTable("client" ,.f.,.f.) .and.;
+OpenTable("invoice",.f.,.f.) .and.;
+OpenTable("item"   ,.f.,.f.)
+
+    ?"Test---------------------------------------------------------------------------------"
+    ?el_dbf("client")
 
     if client->(reccount()) == 0  //Only add records if none are present
         if client->(dbappend())
@@ -169,8 +180,8 @@ if OpenTable("client" ,.t.,.f.) .and.;
 
     endif
 
-?"Will call EL_Seek"
-?EL_Seek("00202","invoice","number")
+?"Will call el_Seek"
+?el_Seek("00202","invoice","number")
 
     client->(ordSetFocus("tag1"))
     invoice->(ordSetFocus("number"))
@@ -223,8 +234,35 @@ endif
 (select("invoice"))->(dbCloseArea())
 (select("item"))->(dbCloseArea())
 
+
 return nil
 //=================================================================================================================
 static function ReturnArray()
 return {"","Hello"}
 //=================================================================================================================
+//=================================================================================================================
+function TestPythonIntegration()
+
+local l_cPythonInstallPath := "C:\Pythons\3_11-64"     // Download Python 3.11 from https://www.python.org/downloads/. Update this path to your own install location
+// local l_cPythonDllFile     := "python311.dll"
+// local l_iCounter
+local l_aPath
+local l_cPath
+
+if hb_osIsWin7()  // Will also be valid for any versions after 7
+    hb_SetEnv("PYTHONHOME",l_cPythonInstallPath)      // Only needed in Windows.
+endif
+
+Py_Initialize()
+
+
+l_aPath := PythonGetSysPath()
+for each l_cPath in l_aPath
+    ?l_cPath
+endfor
+
+
+
+Py_Finalize()
+
+return nil

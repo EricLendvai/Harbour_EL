@@ -39,6 +39,9 @@ else
 
             cp *.ch  build/lin64/${HB_COMPILER}/${BuildMode}/
             cp *.hbc build/lin64/${HB_COMPILER}/${BuildMode}/
+
+            # cp /usr/lib/x86_64-linux-gnu/libpython3.11.so build/lin64/%{HB_COMPILER}/${BuildMode}/
+
             # rm build/lin64/${HB_COMPILER}/${BuildMode}/*.ppo
             #since this is a library will also fail on warnings.
             if [ "${BuildMode}" == "debug" ] ; then

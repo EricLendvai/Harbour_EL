@@ -1,5 +1,11 @@
 # Harbour Extended Library - Change Log
 
+## 06/22/2025 v 4.5
+* New el_DiskSizeInScale(iDiskSize) -> text as TB/GB/MB/KB or B.
+* New el_occurs(cSearchFor,cSearchIn,[lCaseInsensitive]) -> Number of occurrence of cSearchFor in cSearchIn. lCaseInsensitive is optional, default false.
+* Python Integration. See Python.md
+* Start of Matching VFP functions to Harbour or Harbour_EL functions. See VFPToHarbour.md
+
 ## 06/23/2024 v 4.4
 * Added el_UTCOffsetMinToText(<Minute>) -> text. For example el_UTCOffsetMinToText(420) will return "-07:00".   
   Can be used when querying PostgreSQL timestamp with time zone fields with "AT TIME ZONE '-07:00'".   

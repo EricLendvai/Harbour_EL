@@ -19,20 +19,8 @@
 #Example of how to consume this library
 #$hb_el_linux.hbx
 
-hb_el.prg
+-I/usr/include/python3.11/
+-L/usr/lib/python3.11
+-lpython3.11
 
-hb_el_c.c
-
-#The following 2 files will be merged in live Harbour later probably, or at least their changes
-el_strtran.c
-el_strreplace.c
-
-el_from_harbour_foxpro_contrib.c
-
-hb_extra.c
-
-el_AUnpack.c
-
-el_GetProcessID.prg
-el_GetVersion.prg
-el_UTC.prg
+hb_el.hbm

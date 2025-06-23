@@ -10,6 +10,9 @@
 
 -obuild\win64\${HB_COMPILER}\${BuildMode}\${EXEName}
 
+
+
+
 -L${HB_EL_ROOT}\build\win64\${HB_COMPILER}\${BuildMode}
 hb_el.hbc
 

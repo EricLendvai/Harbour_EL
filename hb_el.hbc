@@ -2,6 +2,8 @@ description=Microsoft Visual FoxPro Compatibility
 
 incpaths=.
 
+cflags=-D_FILE_OFFSET_BITS=64
+
 #headers=${hb_name}.ch
 
 libs=${_HB_DYNPREF}${hb_name}${_HB_DYNSUFF}
@@ -9,3 +11,11 @@ libs=${_HB_DYNPREF}${hb_name}${_HB_DYNSUFF}
 {win}libs=hbwin.hbc
 {unix&!darwin}libs=hbunix.hbc
 {unix&darwin}libs=hbunix.hbc
+
+incpaths={win}C:\Pythons\3_11-64\include
+libpaths={win}C:\Pythons\3_11-64\libs
+libs={win}python311
+
+incpaths={unix}/usr/include/python3.11
+libpaths={unix}/usr/lib/x86_64-linux-gnu
+libs={unix}python3.11 expat

@@ -1,5 +1,8 @@
 -hblib
 
+-Lopt:\ 
+-lVERBOSE
+
 #To enabled progressing recompilation uncomment the following line
 #-inc
 
@@ -19,20 +22,8 @@
 #Example of how to consume this library
 #$hb_el_windows.hbx
 
-hb_el.prg
+-IC:\Pythons\3_11-64\include\
+-LC:\Pythons\3_11-64\libs
+-lpython311
 
-hb_el_c.c
-
-#The following 2 files will be merged in live Harbour later probably, or at least their changes
-el_strtran.c
-el_strreplace.c
-
-el_from_harbour_foxpro_contrib.c
-
-hb_extra.c
-
-el_AUnpack.c
-
-el_GetProcessID.prg
-el_GetVersion.prg
-el_UTC.prg
+hb_el.hbm

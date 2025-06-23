@@ -72,6 +72,9 @@ if not exist build\win64\%HB_COMPILER%\%BuildMode%\%EXEName%.exe (
         echo No Errors
         echo.
         echo Ready            BuildMode = %BuildMode%
+
+        copy %HB_EL_ROOT%\build\win64\%HB_COMPILER%\%BuildMode%\*.dll build\win64\%HB_COMPILER%\%BuildMode%\
+
         if %BuildMode% == release (
             if %RunAfterCompile% == yes (
                 echo -----------------------------------------------------------------------------------------------

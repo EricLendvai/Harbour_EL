@@ -1,4 +1,4 @@
-//Copyright (c) 2024 Eric Lendvai, MIT License
+//Copyright (c) 2025 Eric Lendvai, MIT License
 
 #include "fileio.ch"
 #include "dbinfo.ch"
@@ -7,6 +7,10 @@
 // #ifdef DEVELOPMENTMODE
 // #endif
 
+//=================================================================================================================
+function hb_el_buildinfo()
+#include "BuildInfo.txt"
+return l_cBuildInfo
 //=================================================================================================================
 // function  hb_el_SendToClipboard(cText)   //_CLIPTEXT = 
 //     wvt_SetClipboard(cText)
@@ -108,6 +112,53 @@ endif
 
 return l_cPath
 //=================================================================================================================
+function el_DiskSizeInScale(par_iDriveTotalSizeB)
+local l_nDriveTotalSize
+local l_cSizeInScale
+
+l_nDriveTotalSize := par_iDriveTotalSizeB / (1024*1024*1024*1024)
+if l_nDriveTotalSize >= 1
+    l_cSizeInScale := alltrim(str(round(l_nDriveTotalSize,2)))+" TB"
+else
+    l_nDriveTotalSize := par_iDriveTotalSizeB / (1024*1024*1024)
+    if l_nDriveTotalSize >= 1
+        l_cSizeInScale := alltrim(str(round(l_nDriveTotalSize,2)))+" GB"
+    else
+        l_nDriveTotalSize := par_iDriveTotalSizeB / (1024*1024)
+        if l_nDriveTotalSize >= 1
+            l_cSizeInScale := alltrim(str(round(l_nDriveTotalSize,2)))+" MB"
+        else
+            l_nDriveTotalSize := par_iDriveTotalSizeB / (1024)
+            if l_nDriveTotalSize >= 1
+                l_cSizeInScale := alltrim(str(round(l_nDriveTotalSize,2)))+" KB"
+            else
+                l_cSizeInScale := alltrim(str(l_nDriveTotalSize))+" B"
+            endif
+        endif
+    endif
+endif
+
+return l_cSizeInScale
+//=================================================================================================================
+function el_occurs(par_cSearchFor,par_cSearchIn,par_lCaseInsensitive)
+local l_nCount := 0
+local l_nPos := 1
+local l_lCaseInsensitive := hb_DefaultValue(par_lCaseInsensitive,.f.)
+
+if l_lCaseInsensitive // The code is a little redundant but the fastest
+    do while (l_nPos := hb_AtI(par_cSearchFor, par_cSearchIn,l_nPos)) > 0
+        l_nCount++
+        l_nPos++
+    enddo
+else
+    do while (l_nPos := hb_At(par_cSearchFor, par_cSearchIn,l_nPos)) > 0
+        l_nCount++
+        l_nPos++
+    enddo
+endif
+
+return l_nCount
+//=================================================================================================================
 function el_SendToDebugView(par_cStep,par_xValue)
 local l_cTypeOfxValue
 local l_cValue := "Unknown Value"
@@ -150,8 +201,3 @@ endif
 
 return .T.
 //=================================================================================================================
-function hb_el_buildinfo()
-#include "BuildInfo.txt"
-return l_cBuildInfo
-//=================================================================================================================
-

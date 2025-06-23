@@ -56,6 +56,9 @@ rem del /S /Q /F build\win64\%HB_COMPILER%\%BuildMode%\*.* 2>nul
 
 copy *.ch  build\win64\%HB_COMPILER%\%BuildMode%\
 copy *.hbc build\win64\%HB_COMPILER%\%BuildMode%\
+
+copy C:\Pythons\3_11-64\python311.dll build\win64\%HB_COMPILER%\%BuildMode%\
+
 rem del build\win64\%HB_COMPILER%\%BuildMode%\*.ppo
 
 :: since this is a library will also fail on warnings.
