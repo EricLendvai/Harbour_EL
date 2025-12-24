@@ -42,6 +42,12 @@ HB_FUNC( PY_CREATEPYTHONFLOAT )   // Create a new Python Float (Object) from a H
 
 }
 
+HB_FUNC( PY_CREATEPYTHONINTEGER )   // Create a new Python Integer (Object) from a Harbour numeric (integer).
+{
+   int nValue = hb_parni(1);
+   hb_retptr( PyLong_FromLong( (long) nValue ) );
+}
+
 HB_FUNC( PY_GETPYTHONFLOATVALUE )   // Get the Harbour numeric value from a Python float object.
 {
 
@@ -290,7 +296,7 @@ HB_FUNC( PY_CALLMETHOD )   // Calls a named method of a Python object.
    }
 }
 
-HB_FUNC( PYERR_ERROROCCURRED )   // Checks if a Python error has occurred.
+HB_FUNC( PY_ERROROCCURRED )   // Checks if a Python error has occurred.
 {
    hb_retl( PyErr_Occurred() != NULL );
 }
@@ -298,4 +304,14 @@ HB_FUNC( PYERR_ERROROCCURRED )   // Checks if a Python error has occurred.
 HB_FUNC( PY_PRINTLASTERROR )   // Prints the last Python error (if any) to stderr (useful for debugging).
 {
    PyErr_Print();
+}
+
+HB_FUNC( PY_GETTYPE )     // Get the type of a Python pointer.
+{
+    PyObject * pObj = (PyObject *) hb_parptr( 1 );
+
+    if( pObj && Py_TYPE( pObj ) && Py_TYPE( pObj )->tp_name )
+        hb_retc( Py_TYPE( pObj )->tp_name );
+    else
+        hb_retc( "null" );
 }

@@ -1,5 +1,8 @@
 # Harbour Extended Library - Change Log
 
+## 12/24/2025 v 4.6
+* Added support to "ADDITIVE" in "TEXT TO VAR".
+
 ## 06/22/2025 v 4.5
 * New el_DiskSizeInScale(iDiskSize) -> text as TB/GB/MB/KB or B.
 * New el_occurs(cSearchFor,cSearchIn,[lCaseInsensitive]) -> Number of occurrence of cSearchFor in cSearchIn. lCaseInsensitive is optional, default false.

@@ -1,7 +1,7 @@
 //Copyright (c) 2025 Eric Lendvai MIT License
 
 #ifndef HB_EL_BUILDVERSION
-#define HB_EL_BUILDVERSION "4.5"
+#define HB_EL_BUILDVERSION "4.6"
 
 //#include "hbclass.ch"
 
@@ -107,6 +107,7 @@
 
 //See https://github.com/dmajkic/harbour-core/blob/master/doc/pragma.txt
 #xcommand TEXT TO VAR <var> => #pragma __stream|<var>:=%s
+#xcommand TEXT TO VAR <var> ADDITIVE => #pragma __stream|<var>+=%s
 #xcommand ENDTEXT => #pragma __endtext
 
 

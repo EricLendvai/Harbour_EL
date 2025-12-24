@@ -21,6 +21,14 @@ Note: Harbour functions, even user defined function are case insensitive.
 **Returns**: pPyObject   
 **Note**: To avoid memory leaks, you must release the variable.   
 
+## py_CreatePythonInteger(nValue)
+**Purpose**: Create a new Python Integer (Object) from a Harbour numeric (integer).   
+**Parameters**:
+- nValue: Number (integer) value   
+
+**Returns**: pPyObject   
+**Note**: To avoid memory leaks, you must release the variable.   
+
 ## py_GetPythonFloatValue(pPyObject)
 **Purpose**: Get the Harbour numeric value from a Python float object.   
 **Parameters**:    
@@ -136,3 +144,7 @@ PyList_SetItem() "steals" a reference to item.
 ## py_PrintLastError()
 **Purpose**: Prints the last Python error (if any) to stderr (useful for debugging).   
 **Returns**: Nothing.   
+
+## py_GetType(pObj)
+**Purpose**: Get the Python type name of a Python object.   
+**Returns**: String. Could be "null".   
